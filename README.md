@@ -1,3 +1,31 @@
+# ARCHIVAL NOTICE
+
+This repository has been archived due to a lack of time and resources for continued development.
+If you are interested in continuing the development of this project, or obtaining the crate name, please contact [@philpax](https://github.com/philpax).
+
+There are several high-quality alternatives for inference of LLMs and other models in Rust. We recommend that you consider using one of these libraries instead of `llm`; they have been kept up-to-date and are more likely to be actively maintained.
+
+A selection is presented below. Note that this is not an exhaustive list, and the best solution for you may have changed since this list was compiled:
+
+- [Ratchet](https://github.com/huggingface/ratchet): a `wgpu`-based ML inference library with a focus on web support and efficient inference
+- [Candle](https://github.com/huggingface/candle)-based libraries (i.e. pure Rust outside of platform support libraries):
+  - [mistral.rs](https://github.com/EricLBuehler/mistral.rs): supports quantized models for popular LLM architectures, Apple Silicon + CPU + CUDA support, and is designed to be easy to use
+  - [kalosm](https://crates.io/crates/kalosm): simple interface for language, audio and image models
+  - [candle-transformers](https://github.com/huggingface/candle/tree/main/candle-transformers): first-party Candle library for inference of a wide variety of transformer-based models, similar to Hugging Face Transformers. Relatively low-level, so some knowledge of ML will be required.
+  - [callm](https://crates.io/crates/callm): supports Llama, Mistral, Phi 3 and Qwen 2
+- [llama.cpp](https://github.com/ggerganov/llama.cpp) wrappers (i.e. not pure Rust, but at the frontier of open-source compiled LLM inference):
+  - [drama_llama](https://crates.io/crates/drama_llama): high-level Rust-idiomatic wrapper around `llama.cpp`
+  - [llm_client](https://crates.io/crates/llm_client): also supports other external LLM APIs
+  - [llama_cpp](https://crates.io/crates/llama_cpp): safe, high-level Rust bindings
+  - [llama-cpp-2](https://crates.io/crates/llama-cpp-2): lightly-wrapped raw bindings that follow the C++ API closely
+- Aggregators of external LLM APIs:
+  - [allms](https://crates.io/crates/allms): type-safe interactions for OpenAI, Anthropic, Mistral, Gemini and more in future. Attempts to share a common interface for all APIs.
+  - [llmclient](https://crates.io/crates/llmclient): Rust client for Gemini, OpenAI, Anthropic and Mistral.
+
+The original README follows.
+
+---
+
 # `llm` - Large Language Models for Everyone, in Rust
 
 `llm` is an ecosystem of Rust libraries for working with large language models -
@@ -14,14 +42,14 @@ machine learning.
 
 ## Current State
 
+This library is no longer actively maintained. For reference, the following is the state of the project as of the last update.
+
 There are currently four available versions of `llm` (the crate and the CLI):
 
-- The released version `0.1.1` on `crates.io`. This version is several months out of date and does not include support for the most recent models.
+- The released version `0.1.1` on `crates.io`. This version is very out of date and does not include support for the most recent models.
 - The `main` branch of this repository. This version can reliably infer GGMLv3 models, but does not support GGUF, and uses an old version of GGML.
 - The `gguf` branch of this repository; this is a version of `main` that supports inferencing with GGUF, but does not support any models other than Llama, requires the use of a Hugging Face tokenizer, and does not support quantization. It also uses an old version of GGML.
-- The `develop` branch of this repository. This is a from-scratch re-port of `llama.cpp` to synchronize with the latest version of GGML, and to support all models and GGUF. It is currently a work in progress, and is not yet ready for use.
-
-The plan is to finish up the work on `develop` (see [the PR](https://github.com/rustformers/llm/pull/442)), and then merge it into `main` and release a new version of `llm` to `crates.io`, so that up-to-date support for the latest models and GGUF will be available. It is not yet known when this will happen.
+- The `develop` branch of this repository. This is a from-scratch re-port of `llama.cpp` to synchronize with the latest version of GGML, and to support all models and GGUF. This will not be completed due to the archival of the project.
 
 ## Overview
 
